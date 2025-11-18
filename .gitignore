@@ -1,4 +1,11 @@
+# Python cache folders
 __pycache__/
+
+# Compiled Python files
 *.pyc
+
+# Virtual environment folder
 .env
+
+# CSV data files (optional, large files)
 data/*.csv
