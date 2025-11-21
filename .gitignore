@@ -3,9 +3,27 @@ __pycache__/
 
 # Compiled Python files
 *.pyc
+*.pyo
+*.pyd
 
 # Virtual environment folder
-.env
+.env/
+venv/
+.venv/
 
 # CSV data files (optional, large files)
 data/*.csv
+
+# Streamlit cache (session / app data)
+.streamlit/
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# PyCharm / VSCode / IDE settings
+.idea/
+.vscode/
