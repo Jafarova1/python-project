@@ -10,9 +10,13 @@ __pycache__/
 .env/
 venv/
 .venv/
+venv_312/
+venv_new/
 
 # CSV data files (optional, large files)
 data/*.csv
+data/cached_movies.json
+data/*.tsv
 
 # Streamlit cache (session / app data)
 .streamlit/
