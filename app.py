@@ -130,8 +130,8 @@ if st.session_state.quiz_finished:
     
     percentage = (current_score / max_score) * 100 if max_score > 0 else 0
     
-    st.success(f"Your Total Score: **{current_score}** / **{max_score}**")
-    st.info(f"Percentage: **{percentage:.1f}%**")
+    st.success(f"Your Total Score: *{current_score}* / *{max_score}*")
+    st.info(f"Percentage: *{percentage:.1f}%*")
     
     # Show answers
     with st.expander("Review Your Answers"):
@@ -142,10 +142,10 @@ if st.session_state.quiz_finished:
             status = "✅ Correct" if is_correct else "❌ Incorrect"
             gained_score = q_data['score_weight'] if is_correct else 0
             
-            st.markdown(f"**Question {i+1} ({gained_score}/{q_data['score_weight']} points):** {q_data['question']}")
-            st.write(f"Your Answer: **{user_choice}**")
-            st.write(f"Correct Answer: **{q_data['answer']}**")
-            st.markdown(f"**Result:** {status}")
+            st.markdown(f"*Question {i+1} ({gained_score}/{q_data['score_weight']} points):* {q_data['question']}")
+            st.write(f"Your Answer: *{user_choice}*")
+            st.write(f"Correct Answer: *{q_data['answer']}*")
+            st.markdown(f"*Result:* {status}")
             st.write("---")
 
 # ----------------------------------------------------
