@@ -23,6 +23,7 @@ if 'quiz_finished' not in st.session_state:
 
 # Load movie IDs
 try:
+    # Assuming 'data/sample_movie_ids.csv' is a simple list of IDs without a header
     movie_ids = pd.read_csv("data/sample_movie_ids.csv", header=None).iloc[:, 0].tolist()
 except Exception:
     st.error("Error: The file 'sample_movie_ids.csv' could not be loaded. Please check its path and format.")
@@ -63,7 +64,8 @@ if st.button("Start / Restart Quiz"):
                         'question': question,
                         'options': options,
                         'answer': answer,
-                        'score_weight': score_weight
+                        'score_weight': score_weight,
+                        'movie_info': info  # <-- FIX 1: SAVE THE MOVIE INFO
                     })
                     st.session_state.max_possible_score += score_weight
             else:
@@ -155,7 +157,8 @@ if st.session_state.quiz_finished:
 st.write("---")
 st.subheader("Histogram of Movie Release Years")
 
-movies_for_plot = [fetch_movie(mid, cache) for mid in movie_ids[:10] if movie_ids]
+# <-- FIX 2: PULL DATA FROM THE CURRENT QUIZ SESSION STATE
+movies_for_plot = [q['movie_info'] for q in st.session_state.questions if 'movie_info' in q]
 
 if movies_for_plot:
     try:
@@ -164,7 +167,7 @@ if movies_for_plot:
     except Exception as e:
         st.error(f"Error displaying histogram: {e}")
 else:
-    st.info("No movie data available to display the histogram.")
+    st.info("Start a quiz to display the histogram based on your questions.")
 
 # Save cache
 save_cache(cache)
