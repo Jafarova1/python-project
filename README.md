@@ -51,7 +51,7 @@ Running the Project
 
 To run the Streamlit web application:
 
-streamlit run app.py
+python -m streamlit run app.py
 
 
 This will load movie data, generate the quiz interface in your browser, allow the player to answer, and compute a difficulty-weighted score.
